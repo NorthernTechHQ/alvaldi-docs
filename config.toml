@@ -1,0 +1,17 @@
+baseurl = "/"
+languageCode = "en"
+title = "Alvaldi documentation"
+theme = "alvaldi"
+copyright = "&copy; 2023 <a href=\"https://northern.tech\">Northern.tech</a> AS"
+# Number of posts per page
+Paginate = 10
+enableRobotsTXT = true
+
+[taxonomies]
+tag = "tags"
+
+[markup]
+[markup.highlight]
+style = 'pygments'
+codeFences = true
+pygmentsCodeFences = true
