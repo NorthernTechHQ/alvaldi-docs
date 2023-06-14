@@ -49,40 +49,39 @@ const currentUrl = document.location.pathname;
     }
 })();
 
+const menu = document.querySelector('.top_menu ul');
+const overlay = document.querySelector('#overlay');
+const openedClass = "opened";
 
-(function menuToggleHandler() {
-    const menu = document.querySelector('.top_menu ul');
-    const overlay = document.querySelector('#overlay');
-    const openedClass = "opened";
-    const openMenuHandler = function (collapseMenu) {
-        if (collapseMenu.className.indexOf(openedClass) == -1) {
-            collapseMenu.classList.add(openedClass);
-            menu.classList.add('d-b');
-            overlay.style.display = "block";
-        } else {
-            collapseMenu.classList.remove(openedClass);
-            menu.classList.remove('d-b');
-            overlay.style.display = "none";
-        }
-    }
+const openNavigationHandler = function () {
+    document.querySelector('.left-menu').classList.add(openedClass);
+    overlay.style.display = "block";
+}
 
-    const openNavigationHandler = function () {
-        document.querySelector('.left-menu').classList.add(openedClass);
+const openMenuHandler = function (collapseMenu) {
+    if (collapseMenu.className.indexOf(openedClass) == -1) {
+        collapseMenu.classList.add(openedClass);
+        menu.classList.add('d-b');
         overlay.style.display = "block";
-    }
-
-    document.querySelector('.left-menu .menu-close').onclick = function () {
-        document.querySelector('.left-menu').classList.remove(openedClass);
-        overlay.style.display = "none";
-    }
-
-    overlay.onclick = function () {
-        document.querySelector('.collapse').classList.remove(openedClass);
-        document.querySelector('.left-menu').classList.remove(openedClass);
+    } else {
+        collapseMenu.classList.remove(openedClass);
         menu.classList.remove('d-b');
         overlay.style.display = "none";
     }
-})();
+}
+
+
+document.querySelector('.left-menu .menu-close').onclick = function () {
+    document.querySelector('.left-menu').classList.remove(openedClass);
+    overlay.style.display = "none";
+}
+
+overlay.onclick = function () {
+    document.querySelector('.collapse').classList.remove(openedClass);
+    document.querySelector('.left-menu').classList.remove(openedClass);
+    menu.classList.remove('d-b');
+    overlay.style.display = "none";
+}
 
 
 const mainMenuCopy = document.querySelector('.left-menu ul.mainMenu').cloneNode(true);
