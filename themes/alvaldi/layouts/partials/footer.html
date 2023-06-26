@@ -1,0 +1,43 @@
+<footer class="footer">
+    <div class="container">
+        <ul>
+            <li><a target="_blank" href="/"><img  alt="CFEngine homepage"src="/cfengine-logo-white.svg" /></a></li>
+            <li><a href="legal.html">Legal and Licenses</a></li>
+            <li><a target="_blank" href="/contact/">Contact us</a></li>
+        </ul>
+    </div>
+</footer>
+<div id="overlay"></div>
+<script type="text/javascript" src="{{ "js/main.js" | relURL }}"></script>
+</body>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    function onNewsletterSubmit() {
+        let form = document.getElementById('newsletter-form');
+
+        let isValid = true;
+        form.querySelectorAll('input[required]').forEach(item => {
+            if (item.value == '') {
+                item.style = 'border-color: red;';
+                isValid = false;
+            } else {
+                item.style = '';
+            }
+        });
+
+        if (isValid == false) {
+            return;
+        }
+
+        let captchaSettings = document.getElementsByName("captcha_settings")[0];
+        let parsedCaptchaValue = JSON.parse(captchaSettings.value);
+        if (parsedCaptchaValue.hasOwnProperty('ts')) {
+            parsedCaptchaValue["ts"] = JSON.stringify(new Date().getTime());
+        }
+
+        captchaSettings.value = JSON.stringify(parsedCaptchaValue);
+        form.submit()
+    }
+</script>
+</html>

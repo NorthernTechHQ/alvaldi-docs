@@ -1,0 +1,7 @@
+public/
+.DS_Store
+.vscode/
+themes/alvaldi/static/css/style.min.css
+layouts/partials/mainMenu.html
+resources/
+.hugo_build.lock
