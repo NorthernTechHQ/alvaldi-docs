@@ -27,6 +27,7 @@ build:sample:
     - echo "bad"
     - echo "world"
     - echo "2"
+    - echo "3"
     ## excludes non multiplatform build job
     #build:docker:
     #  rules:
