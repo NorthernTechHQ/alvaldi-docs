@@ -1,43 +1,83 @@
 variables:
   DOCKER_REPOSITORY: registry.mender.io/northerntech/alvaldi-docs
-  DOCKERFILE: Containerfile
-  MULTIPLATFORM_BUILD: "true"
-  MULTIPLATFORM_PLATFORMS: "linux/amd64,linux/arm64"
-  GITHUB_STATUS_API_URL: "https://api.github.com/repos/NorthernTechHQ/$CI_PROJECT_NAME/statuses/$CI_COMMIT_SHA"
+    #  DOCKERFILE: Containerfile
+    #    #MULTIPLATFORM_BUILD: "true"
+    #  MULTIPLATFORM_PLATFORMS: "linux/amd64,linux/arm64"
+    #  GITHUB_STATUS_API_URL: "https://api.github.com/repos/NorthernTechHQ/$CI_PROJECT_NAME/statuses/$CI_COMMIT_SHA"
 
 
-include:
-  - project: 'Northern.tech/Mender/mendertesting'
-    file: '.gitlab-ci-check-docker-build.yml'
-  - project: 'Northern.tech/Mender/mendertesting'
-    file: '.gitlab-ci-check-docker-deploy.yml'
-  - project: 'Northern.tech/Mender/mendertesting'
-    file: '.gitlab-ci-github-status-updates.yml'
+    #include:
+    #  - project: 'Northern.tech/Mender/mendertesting'
+    #    file: '.gitlab-ci-check-docker-build.yml'
+    #  - project: 'Northern.tech/Mender/mendertesting'
+    #    file: '.gitlab-ci-check-docker-deploy.yml'
+    #  - project: 'Northern.tech/Mender/mendertesting'
+    #    file: '.gitlab-ci-github-status-updates.yml'
 
 
 stages:
   - build
-  - publish
-  - sync
+    #  - publish
+    #  - sync
 
-# excludes non multiplatform build job
-build:docker:
-  rules:
-    - when: never
+build:sample:
+  stage: build
+  script:
+    - echo "hello"
+    ## excludes non multiplatform build job
+    #build:docker:
+    #  rules:
+    #    - when: never
 
-publish:image-multiplatform:
-  rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
+    #build:docker-multiplatform:
+    #  tags:
+    #    - mender-qa-worker-generic-light
+    #  stage: build
+    #  needs: []
+    #  variables:
+    #    DOCKER_BUILDKIT: 1
+    #    MULTIPLATFORM_PLATFORMS: "linux/amd64,linux/arm64"
+    #    rules:
+    #      - if: '$CI_COMMIT_BRANCH == "ALV-27-docs-automatic-deployment"'
+    #      #    - if: $MULTIPLATFORM_BUILD != "true"
+    #      #    #      when: never
+    #      #    - if: '$CI_COMMIT_TAG =~ /^saas-[a-zA-Z0-9.]+$/'
+    #      #      when: never
+    #      #    - when: on_success
+    #  image: "registry.gitlab.com/northern.tech/mender/mender-test-containers:docker-multiplatform-buildx-v1-master"
+    #  services:
+    #    - docker:20.10.21-dind
+    #  before_script:
+    #    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    #  script:
+    #    - echo "building ${CI_PROJECT_NAME} for ${DOCKER_BUILD_SERVICE_IMAGE}"
+    #    - docker context create builder
+    #    - docker buildx create builder --use --driver-opt network=host --buildkitd-flags '--debug --allow-insecure-entitlement network.host'
+    #    - docker buildx build
+    #      --cache-to type=registry,ref=${CI_REGISTRY_IMAGE}:ci_cache,mode=max
+    #      --cache-from type=registry,ref=${CI_REGISTRY_IMAGE}:ci_cache
+    #      --tag ${CI_REGISTRY_IMAGE}:${CI_PIPELINE_ID}
+    #      --file ${DOCKER_DIR:-.}/${DOCKERFILE:-Dockerfile}
+    #      --build-arg GIT_COMMIT_TAG="${DOCKER_PUBLISH_COMMIT_TAG}"
+    #      --platform $MULTIPLATFORM_PLATFORMS
+    #      --provenance false
+    #      --push
+    #      ${DOCKER_DIR:-.}
 
-sync:image:
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "production"'
-  variables:
-    TARGET_MANIFEST_FILE: "kubernetes/alvaldi-docs/alvaldi-docs-deployment.yaml"
 
-sync:image:staging:
-  extends: sync:image
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
-  variables:
-    TARGET_MANIFEST_FILE: "kubernetes/staging-alvaldi-docs/staging-alvaldi-docs-deployment.yaml"
+      #publish:image-multiplatform:
+      #  rules:
+      #    - if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
+      #
+      #sync:image:
+      #  rules:
+      #    - if: '$CI_COMMIT_BRANCH == "production"'
+      #  variables:
+      #    TARGET_MANIFEST_FILE: "kubernetes/alvaldi-docs/alvaldi-docs-deployment.yaml"
+      #
+      #sync:image:staging:
+      #  extends: sync:image
+      #  rules:
+      #    - if: '$CI_COMMIT_BRANCH == "master"'
+      #  variables:
+      #    TARGET_MANIFEST_FILE: "kubernetes/staging-alvaldi-docs/staging-alvaldi-docs-deployment.yaml"
