@@ -24,6 +24,7 @@ build:sample:
   stage: build
   script:
     - echo "hello"
+    - echo "world"
     ## excludes non multiplatform build job
     #build:docker:
     #  rules:
