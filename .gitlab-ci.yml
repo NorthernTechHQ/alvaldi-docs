@@ -9,7 +9,6 @@ variables:
 include:
   - project: 'Northern.tech/Mender/mendertesting'
     file: '.gitlab-ci-check-docker-build.yml'
-    ref: ALV-27-docs-automatic-deployment 
   - project: 'Northern.tech/Mender/mendertesting'
     file: '.gitlab-ci-check-docker-deploy.yml'
   - project: 'Northern.tech/Mender/mendertesting'
