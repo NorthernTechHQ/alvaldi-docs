@@ -38,6 +38,6 @@ sync:image:
 sync:image:staging:
   extends: sync:image
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
     TARGET_MANIFEST_FILE: "kubernetes/staging-alvaldi-docs/staging-alvaldi-docs-deployment.yaml"
