@@ -37,6 +37,8 @@ sync:image:
 
 sync:image:staging:
   extends: sync:image
+  dependencies:
+    - publish:image-multiplatform
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
