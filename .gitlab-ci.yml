@@ -99,7 +99,7 @@ sync:image:staging:
   script:
     # Prepare temporary workspace
     - |
-      echo "DEBUG - setting new image: $"UBLISH_IMAGE_DIGEST to $TARGET_MANIFEST_FILE"
+      echo "DEBUG - setting new image: $PUBLISH_IMAGE_DIGEST to $TARGET_MANIFEST_FILE"
       cd $(mktemp -d)
     - git clone --depth 1 ${INFRA_REPOSITORY} .
     - git fetch origin ${INFRA_BRANCH}:local-sync
