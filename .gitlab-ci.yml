@@ -98,11 +98,12 @@ sync:image:staging:
     - git config --global user.name "Mender Test Bot"
   script:
     # Prepare temporary workspace
-    - cd $(mktemp -d)
+    - |
+      echo "DEBUG - setting new image: $"UBLISH_IMAGE_DIGEST to $TARGET_MANIFEST_FILE"
+      cd $(mktemp -d)
     - git clone --depth 1 ${INFRA_REPOSITORY} .
     - git fetch origin ${INFRA_BRANCH}:local-sync
     - git checkout local-sync
-    - echo "DEBUG - setting new image: $"UBLISH_IMAGE_DIGEST to $TARGET_MANIFEST_FILE"
     # Find and edit spec file(s)
     - for file in $(echo $TARGET_MANIFEST_FILE | tr ',' '\n'); do
     -   if [ ! -f "$file" ]; then
