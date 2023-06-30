@@ -43,3 +43,32 @@ sync:image:staging:
     - if: '$CI_COMMIT_BRANCH == "main"'
   variables:
     TARGET_MANIFEST_FILE: "kubernetes/staging-alvaldi-docs/staging-alvaldi-docs-deployment.yaml"
+  script:
+    # Prepare temporary workspace
+    - cd $(mktemp -d)
+    - git clone --depth 1 ${INFRA_REPOSITORY} .
+    - git fetch origin ${INFRA_BRANCH}:local-sync
+    - git checkout local-sync
+    - echo "DEBUG - setting new image: $"UBLISH_IMAGE_DIGEST to $TARGET_MANIFEST_FILE"
+    # Find and edit spec file(s)
+    - for file in $(echo $TARGET_MANIFEST_FILE | tr ',' '\n'); do
+    -   if [ ! -f "$file" ]; then
+    -     echo "Cannot find spec file $file for container $CI_PROJECT_NAME"
+    -     exit 1
+    -   fi
+    -   'sed -i -E "s#image:\s+[-_./@:a-zA-Z0-9]+#image: $PUBLISH_IMAGE_DIGEST#g" $file'
+    -   git add $file
+    - done
+    # Commit
+    - git commit -sm "[Mender CI/CD] Sync $CI_PROJECT_NAME" -m "Update $CI_PROJECT_NAME with tag $PUBLISH_IMAGE_DIGEST"
+    - git show
+    # Push (5 retries)
+    - for retry in $(seq 5); do
+    -   if git push origin local-sync:${INFRA_BRANCH}; then
+    -     exit 0
+    -   fi
+    -   git fetch origin ${INFRA_BRANCH}
+    -   git rebase origin/${INFRA_BRANCH}
+    - done
+    - exit 1
+
