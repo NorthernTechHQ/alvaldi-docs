@@ -25,6 +25,11 @@ build:docker:
   rules:
     - when: never
 
+# excludes non multiplatform build job
+publish:image:
+  rules:
+    - when: never
+
 publish:image-multiplatform:
   rules:
     - if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
