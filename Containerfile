@@ -1,9 +1,11 @@
-FROM node:alpine AS build
+FROM --platform=$BUILDPLATFORM node:alpine AS build
+ARG TARGETPLATFORM
 WORKDIR /alvaldi-docs
 ADD https://github.com/gohugoio/hugo/releases/download/v0.113.0/hugo_0.113.0_Linux-64bit.tar.gz hugo.tar.gz
 RUN echo "0686b5d397b888fc4e39e9678751f690bc6fe4442a2096bcb0c267ee9bd1ed2c  hugo.tar.gz" | sha256sum -c
 RUN tar -zxvf hugo.tar.gz
 COPY ./ /alvaldi-docs
+RUN npm install less
 RUN npx -p less lessc --compress /alvaldi-docs/themes/alvaldi/styles/alvaldi.less /alvaldi-docs/themes/alvaldi/static/css/style.min.css
 RUN npm install --prefix /alvaldi-docs/themes/alvaldi/fonts bootstrap-icons  @fontsource/red-hat-display @fontsource/red-hat-text @fontsource/red-hat-mono @fontsource/roboto
 RUN npm install --prefix /alvaldi-docs/scripts/search/index
