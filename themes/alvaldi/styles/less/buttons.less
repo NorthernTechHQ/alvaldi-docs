@@ -18,7 +18,7 @@
   }
 
 
-  &-orange {
+  &-green {
     background: @orange;
     color: @white !important;
     border: none;
@@ -33,6 +33,21 @@
       }
     }
   }
+    &-green {
+      background: @green;
+      color: @white !important;
+      border: none;
+
+      &:before {
+        background: linear-gradient(45deg, @green, @white, @green);
+      }
+
+      &-secondary {
+        &:hover, &:focus {
+          background-color: #BA6622;
+        }
+      }
+    }
 
   &-bordered {
     border: 1px solid @gray-400;
