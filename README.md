@@ -12,3 +12,4 @@ If you wish to properly date a content item for the future, such as when draftin
 a blog post, you can change the `Containerfile` or your local `hugo` command to
 include `-D --buildDrafts` and `-F --buildFuture` so
 `hugo --buildDrafts --buildFuture --verbose` instead of `hugo -v`.
+
