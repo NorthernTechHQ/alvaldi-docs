@@ -13,3 +13,5 @@ a blog post, you can change the `Containerfile` or your local `hugo` command to
 include `-D --buildDrafts` and `-F --buildFuture` so
 `hugo --buildDrafts --buildFuture --verbose` instead of `hugo -v`.
 
+# test deploy
+Test staging deploy
