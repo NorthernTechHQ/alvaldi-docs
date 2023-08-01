@@ -7,7 +7,7 @@ RUN tar -zxvf hugo.tar.gz
 COPY ./ /alvaldi-docs
 RUN npm install less
 RUN npx -p less lessc --compress /alvaldi-docs/themes/alvaldi/styles/alvaldi.less /alvaldi-docs/themes/alvaldi/static/css/style.min.css
-RUN npm install --prefix /alvaldi-docs/themes/alvaldi/fonts bootstrap-icons  @fontsource/red-hat-display @fontsource/red-hat-text @fontsource/red-hat-mono @fontsource/roboto
+RUN npm install --prefix /alvaldi-docs/themes/alvaldi/fonts
 RUN npm install --prefix /alvaldi-docs/scripts/search/index
 RUN npm install --prefix /alvaldi-docs/scripts/search/server
 RUN node /alvaldi-docs/scripts/menuBuilder.js
