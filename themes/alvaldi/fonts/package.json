@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "@fontsource/red-hat-display": "^5.0.5",
-    "@fontsource/red-hat-mono": "^5.0.5",
-    "@fontsource/red-hat-text": "^5.0.5",
-    "@fontsource/roboto": "^5.0.5",
-    "bootstrap-icons": "^1.10.5"
-  }
-}
