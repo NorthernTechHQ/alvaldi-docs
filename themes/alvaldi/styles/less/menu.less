@@ -63,7 +63,7 @@ aside {
     }
 
     a {
-      color: #5E6366;
+      color: @gray-600;
       text-decoration: none;
       line-height: 2rem;
       padding-top: 1rem;
@@ -100,7 +100,7 @@ aside {
 
           &:before {
             content: " ";
-            background: rgba(227, 241, 253, 0.6);
+            background: @green50;
             position: absolute;
             height: 100%;
             width: 33rem;
@@ -109,7 +109,20 @@ aside {
           }
 
           > a {
-            color: @blue-700;
+            color: @green800;
+          }
+        }
+
+        &.opened.current.parent {
+          &:after {
+            content: " ";
+            background: @green100;
+            position: absolute;
+            height: 40px;
+            width: 33rem;
+            z-index: -1;
+            top: 0;
+            right: 0;
           }
         }
 
@@ -276,13 +289,13 @@ aside {
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
-    color: @blue-900;
+    color: @green800;
     background: none;
     border-radius: .4rem;
-    border: 1px solid @blue-900;
+    border: 1px solid @green800;
     padding: .8rem 1.2rem .8rem .9rem;
     display: none;
-    margin-top: -3rem;
+    margin-top: -2rem;
     @media @tablet-down {
       display: block;
     }
