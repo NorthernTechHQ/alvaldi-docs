@@ -1,7 +1,6 @@
 ---
 title: Terminal
 date: 2023-07-12:00:00+00:00
-sorting: 1
 ---
 
 Once you've found the device you're looking for in the device list, clicking on it will open the device info page.
