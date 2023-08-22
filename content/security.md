@@ -30,7 +30,7 @@ In the backend, MongoDB is used to store user data, and storage level encryption
 Users authenticate with a username and password combination, and an optional 2FA app.
 Authenticating with a SAML-compatible identity provider (Such as Azure) is also possible.
 
-Devices authenticate with an RSA key pair (defaulting to 3072 bits length).
+Devices authenticate with a cryptographic key pair (currently defaulting to ECDSA).
 
 ## Device authorization
 
