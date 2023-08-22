@@ -4,7 +4,7 @@ date: 2023-07-12:00:00+00:00
 sorting: 4
 ---
 
-This part of the documentation highlights some of the functionality in Alvaldi:
+This part of the documentation highlights some of the functionality of Alvaldi:
 
 * [Terminal](/features/terminal) - For investigating and fixing issues by running commands on remote devices.
 * [Inventory](/features/inventory) - To see important context and information about the device you're troubleshooting.
