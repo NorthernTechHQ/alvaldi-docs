@@ -109,6 +109,14 @@ article {
       }
     }
 
+    a:has(> img) {
+      transition: filter ease 0.25s;
+      &:hover {
+        border-bottom: none;
+        filter: drop-shadow(0px 2px 16px rgba(0, 0, 0, 0.1));
+      }
+    }
+
     .article_title {
       display: flex;
       align-items: center;
