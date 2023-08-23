@@ -1,4 +1,4 @@
-# Alvaldi Documentation
+# Alvaldi Docs
 
 ## Local preview
 
