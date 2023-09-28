@@ -9,7 +9,7 @@ Below you'll find a list of words and concepts that might be useful to understan
 
 ## Audit logs {#audit-logs}
 
-Logging focused on user's action, especially when it comes to making changes, and activity which could cause negative results (change a value, remove a device, disable functionality, change settings, restart systems, and so on.
+Logging focused on user's action, especially when it comes to making changes, and activity which could cause negative results (change a value, remove a device, disable functionality, change settings, restart systems, and so on).
 Proper audit logging should include when a change occured, what resource was changed, how it was changed, and when.
 For proper audit logging, it is essential that users have individual accounts, and don't use shared accounts, or share the login information to their personal accounts.
 Useful for investigating what has happened in cases where there's been a security incident, data breach, suspicious activity, etc.
