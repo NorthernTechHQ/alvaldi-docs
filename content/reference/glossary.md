@@ -36,12 +36,12 @@ See [the section below](#rbac) for more information about RBAC.
 Programs often have multiple interfaces to interact with users and other programs.
 GUIs are perhaps the most well known ones - phone apps, websites and desktop applications are examples of GUIs.
 Other common interfaces are [application programming interfaces (APIs)](https://en.wikipedia.org/wiki/API) and [command line interfaces (CLIs)](https://en.wikipedia.org/wiki/Command-line_interface).
-GUIs are considered the easiest to use / learn as well as more efficient for some tasks (tasks where visuals / layout help the user experience).
-Another common benefit of GUIs is that they don't require any installation or configuration or specific platforms to work, users already have web browsers on their devices, and they can use the entire functionality from within the web browser.
+GUIs are considered the most intuitive and therefore easist to use and learn as well as more efficient for some tasks (tasks where visuals / layout help the user experience).
+Another common benefit of web-based GUIs is that they don't require any installation or configuration or specific platforms to work, users already have web browsers on their devices, and they can use the entire functionality from within the web browser.
 
 ## Groups {#groups}
 
-In Alvaldi, groups are collections of devices, either static lists or dynamic rules based on filters, used for organizing devices and more easily finding the one you're looking for.
+In Alvaldi, groups are collections of devices, either static lists or dynamic rules based on filters, used for organizing devices and finding the one you're looking for faster.
 
 ## Hyper text transfer protocol secure (HTTPS) {#https}
 
@@ -51,7 +51,8 @@ Also referred to as HTTP over [TLS](#tls) - it is implemented as HTTP communicat
 
 ## Identity provider {#identity-provider}
 
-In the case of [single sign-on](#sso), an identity provider is the entity that is responsible for authenticating the user (providing identities and user management capabilities) while service the user is signing in to use is referred to as the service provider.
+The concept of an identity provider (IdP) only applies to the [single sign-on](#sso) situation.
+It is the entity responsible for authenticating the user (providing identities and user management capabilities) while service the user is signing in to use is referred to as the service provider.
 If you're using Microsoft to log in to Alvaldi, Microsoft is the identity provider while Alvaldi is the service provider.
 See [the section on single sign-on](#) for more information.
 
@@ -62,18 +63,21 @@ If you try to open up / connect to a device which is inactive, you will be promp
 
 ## Inventory {#inventory}
 
-Useful high level information collected about your devices / computers / servers is typically called inventory.
+Information collected about all your devices / computers / servers is typically called inventory.
 This includes operating system, software version numbers, IP addresses, MAC addresses, hostnames, etc.
 See [the feature page for device inventory](/features/inventory) for more information.
 
 ## No open ports {#no-open-ports}
 
-The term "open ports" typically refers to having a server program listening for incoming connections from clients on a network port, and/or opening up a network port in your firewall rules.
-With Alvaldi, the potential attack surface is reduced, by not having any server software listening to arbitrary connections from the internet, and you can block all incoming traffic in the firewall rules.
+The term "open ports" typically refers to having a server program listening for incoming connections from clients on a [network port](https://en.wikipedia.org/wiki/Port_%28computer_networking%29), and/or opening up a network port in your firewall rules.
+In Alvaldi, the open ports are only on the server, which accepts standard HTTPS communication on port 443.
+The device initiates the connection with the server, so it is only making outbound connections.
+Thus, the potential attack surface is reduced, by not having any server software listening to arbitrary connections from the internet, and you can block all incoming traffic in the firewall rules of the device.
+For more information on how Alvaldi works, see the [architecture page in our documentation](/architecture).
 
 ## Offline devices {#offline-devices}
 
-In Alvaldi, there is a threshold (adjustable in the settings page) for when to consider non-communicating devices offline.
+In Alvaldi, there is a time threshold (adjustable in the settings page) for when to consider non-communicating devices offline.
 This could happen for a number of reasons; the device is turned off, temporarily without network or power, malfunctioning, or the device has been decommissioned.
 In these cases it will not be possible to connect to the device with the terminal, and data about the device is not getting updated.
 
@@ -91,7 +95,7 @@ See the [feature page for RBAC](#rbac) for more information.
 
 SSH enables running a shell securely on a remote machine - authentication is required and communication is encrypted.
 While setting up SSH is relatively simple for a single user and device, managing it at scale and fulfilling desired security requirements can be challenging.
-Additional software and configuration is required for user and secret management, [RBAC](#rbac), [audit logging](#audit-logs), not accepting arbitrary connections from the internet (tunnel / [VPN](#vpn)), [2-factor authentication](#mfa), etc.
+Additional software and configuration is required for user and key management, [RBAC](#rbac), [audit logging](#audit-logs), not accepting arbitrary connections from the internet (tunnel / [VPN](#vpn)), [2-factor authentication](#mfa), etc.
 These security requirements are even more relevant for IoT devices, since they are often connected to open and untrusted networks.
 Alvaldi provides some of the same functionality as SSH; enabling users to log in remotely and securely, run commands, see the output and troubleshoot issues, while supporting all of these security features out of the box, without further configuration or installation of additional software.
 
@@ -124,7 +128,7 @@ You can find [more information about VPNs on Wikipedia](https://en.wikipedia.org
 ## 2-Factor Authentication (2FA) / Multi-Factor Authentication (MFA) {#mfa}
 
 Typically, users authenticate (log in) with a username and password.
-There are various reasons why passwords might be compromised: passwords are cracked because they are too short / easy to guess, they reuse passwords across multiple websites, a password database of an online service is breached, a malware / key logger is running on their computer, etc.
+There are various reasons why passwords might be compromised: passwords are cracked because they are too short / easy to guess, passwords are reused across multiple services, a password database of an online service is breached, a malware / key logger is running on user's computers, etc.
 One very effective way of strengthening the log in process is relying on multiple factors for authentication (i.e. something you know, the password, and something you have, your phone).
 The most common approaches include a code generator app on the phone, a text message, an email, or a hardware security key.
 Alvaldi supports 2FA, and we recommend everyone to use it, either set it up in the settings page if you're using password based authentication, or via your [identity provider](#identity-provider) if you're using [single sign-on](#sso).
