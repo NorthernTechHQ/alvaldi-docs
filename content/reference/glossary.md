@@ -9,10 +9,10 @@ Below you'll find a list of words and concepts that might be useful to understan
 
 ## Audit logs {#audit-logs}
 
-Logging focused on user's action, especially when it comes to making changes, and activity which could cause negative results (change a value, remove a device, disable functionality, change settings, restart systems, and so on).
-Proper audit logging should include when a change occured, what resource was changed, how it was changed, and when.
+Logging focused on the users' actions, especially when it comes to making changes, and activity which could cause negative results (change a value, remove a device, disable functionality, change settings, restart systems, and so on).
+Proper audit logging should include when a change occurred, what resource was changed, and how it was changed.
 For proper audit logging, it is essential that users have individual accounts, and don't use shared accounts, or share the login information to their personal accounts.
-Useful for investigating what has happened in cases where there's been a security incident, data breach, suspicious activity, etc.
+Audit logs are useful for investigating what has happened in cases where there's been a security incident, data breach, suspicious activity, etc.
 Audit logging is often needed for compliance with laws or security frameworks, depending on industry and application.
 See the [audit log feature documentation](/features/audit-log) for more information.
 
@@ -36,7 +36,7 @@ See [the section below](#rbac) for more information about RBAC.
 Programs often have multiple interfaces to interact with users and other programs.
 GUIs are perhaps the most well known ones - phone apps, websites and desktop applications are examples of GUIs.
 Other common interfaces are [application programming interfaces (APIs)](https://en.wikipedia.org/wiki/API) and [command line interfaces (CLIs)](https://en.wikipedia.org/wiki/Command-line_interface).
-GUIs are considered the most intuitive and therefore easist to use and learn as well as more efficient for some tasks (tasks where visuals / layout help the user experience).
+GUIs are considered the most intuitive and therefore easiest to use and learn as well as more efficient for some tasks (tasks where visuals / layout help the user experience).
 Another common benefit of web-based GUIs is that they don't require any installation or configuration or specific platforms to work, users already have web browsers on their devices, and they can use the entire functionality from within the web browser.
 
 ## Groups {#groups}
@@ -85,6 +85,7 @@ In these cases it will not be possible to connect to the device with the termina
 
 With multi-user enterprise software it is considered best practice to give users as little access as possible (the principle of least privilege).
 This is achieved using an RBAC approach, where you assign one or more roles to users, granting them access to different functionality and resources.
+Restricting access prevents malicious actors from engaging in harmful activities and  safeguards against well-intentioned individuals inadvertently making mistakes.
 In Alvaldi, the default, lowest level of access you can grant users is Read.
 Beyond this, support staff and engineers which need to troubleshoot devices may need the roles for using the Terminal and File transfer capabilities.
 Members of security and compliance teams may not need write access, but would typically need the Audit role, for accessing audit logs and terminal session playback.
@@ -115,6 +116,7 @@ In Alvaldi, the terminal is running in the user's browser, while the shell it's 
 
 One of the most widely used protocols for transporting information securely over the network, i.e. ensuring the data can not be read or tampered with before reaching its intended recipient.
 Since Alvaldi uses HTTPS for communication between the server and users as well as devices, it is using TLS.
+Since Alvaldi uses HTTPS for communication between the server, users and devices; it is using TLS.
 See [the section on HTTPS](#https) for more information.
 
 ## Virtual Private Network (VPN) {#vpn}
