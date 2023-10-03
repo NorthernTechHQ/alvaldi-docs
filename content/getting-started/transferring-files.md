@@ -6,3 +6,5 @@ sorting: 4
 ---
 
 TODO: Content.
+
+{{< wideimg "/screenshot-gui-device-info-page-file-transfer.png" "Screenshot of file transfer GUI in the device info page">}}
