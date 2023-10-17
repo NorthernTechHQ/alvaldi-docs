@@ -6,8 +6,10 @@ sorting: 3
 ---
 
 Alvaldi was built with security in mind.
-At [Northern.tech](https://northern.tech) we have a long history of building security critical software for servers and IoT devices.
+At [Northern.tech](https://northern.tech) we have a long history of creating security critical software for servers and IoT devices.
 We perform code review, focusing on finding security issues and architecting a robust solution to keep your data and devices safe.
+If you've found a potential security issue or otherwise need to get in contact with our security team, see: [northern.tech/security.txt](https://northern.tech/security.txt).
+Below, we've outlined some of the key benefits of Alvaldi from a security perspective.
 
 ## No open ports on the device
 
@@ -54,3 +56,8 @@ Even the input keystrokes and program output in the device terminal are recorded
 The audit log allows you to investigate suspicious, malicious, or accidental activity, helping you prove compliance and better handle security incidents.
 
 [Read more about audit logs in Alvaldi.](/features/audit-log)
+
+## Open source client
+
+The code running on the device is [open source and available on GitHub](https://github.com/NorthernTechHQ/nt-connect).
+We encourage you to review the security aspects of it and [disclose any potential vulnerabilities to us](https://northern.tech/security.txt).
