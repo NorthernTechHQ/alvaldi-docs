@@ -38,9 +38,8 @@ For more information, see [alvaldi.com/pricing](https://alvaldi.com/pricing).
 
 Alvaldi is built on a lot of Open Source technology, libraries and other dependencies.
 At [Northern.tech](https://northern.tech) we have many years of experience building and maintaining both open source and closed source software.
-For Alvaldi, we intend to open source parts of the solution, such as the documentation and the client (the code running on the device), enabling you to review the security aspects and contribute improvements.
+For Alvaldi, [the client is open source](https://github.com/NorthernTechHQ/nt-connect), enabling you to review the security aspects and contribute improvements.
 We are committed to creating the most easy to use and secure solution for remote troubleshooting of IoT devices, and hope that our users and the wider open source community can help us achieve this.
-To receive updates in this area, sign up for our newsletter at the bottom of this page.
 
 ## How is Alvaldi different from SSH?
 
