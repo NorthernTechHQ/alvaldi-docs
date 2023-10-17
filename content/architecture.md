@@ -5,7 +5,7 @@ preview_description: Detailed information on how Alvaldi works.
 sorting: 2
 ---
 
-Alvaldi let's users remotely access and troubleshoot their connected devices.
+Alvaldi lets users remotely access and troubleshoot their connected devices.
 Devices and users connect to the Alvaldi service at:
 
 https://app.alvaldi.com/
