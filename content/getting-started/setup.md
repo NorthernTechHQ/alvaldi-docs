@@ -43,12 +43,23 @@ Now we need to install the client on device(s) - the Azure IoT Edge module.
 
 ## Step 3 - Installing the Azure IoT Edge module
 
-Your devices need to know which Alvaldi account to connect to.
-In your Alvaldi account, go to **Settings**, and then **Organization and billing**.
-There you will see your **Organization token** (Tenant token).
-Keep this window open, you will need to copy this token soon.
+Your devices will not show up in Alvaldi until you install the client on them (the Alvaldi IoT Edge module).
+In the device list, you will see:
 
-Find the Azure IoT Edge devices in the Azure portal, and click **Set modules**.
+{{< img "/no-devices-message.png" "UI with the message: It looks like Alvaldi is not installed. To get started, deploy the Alvaldi IoT Edge module in Azure.">}}
+
+When you install the module, your devices need to know which Alvaldi account to connect to.
+In your Alvaldi account, go to **Settings**, and then **Organization and billing**:
+
+{{< wideimg "/settings-organization-token.png" "The settings UI showing an organization token (censored).">}}
+
+There you will see your **Organization token** (Tenant token).
+Keep this window / tab open, you will need to copy the token soon.
+
+Find the Azure IoT Edge devices in the Azure portal, and click **Set modules**:
+
+{{< wideimg "/azure-iot-edge-set-modules.png" "IoT Edge UI with the Set modules button highlighted.">}}
+
 Add our Alvaldi Edge module, and fill out the necessary configuration, shown below.
 Apart from your Alvaldi organization token, everything else should be default / pre-filled.
 
@@ -64,7 +75,7 @@ CONNECT_SERVER_URL=https://app.alvaldi.com
 CONNECT_TENANT_TOKEN=TENANT_TOKEN_FROM_YOUR_ALVALDI_ACCOUNT
 ```
 
-**Put your real tenant token from Alvaldi settings into the variable(!)**
+**Important:** Put your real tenant token from Alvaldi settings into the variable(!).
 
 **Container create options:**
 
@@ -84,6 +95,12 @@ CONNECT_TENANT_TOKEN=TENANT_TOKEN_FROM_YOUR_ALVALDI_ACCOUNT
   }
 }
 ```
+
+## The device shows up
+
+After the module has been successfully deployed, your device should show up in Alvaldi:
+
+https://app.alvaldi.com/ui/devices
 
 ## Up next
 
