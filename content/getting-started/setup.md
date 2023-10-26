@@ -14,13 +14,13 @@ There are 3 short steps you need to complete to set up Alvaldi before using it f
 
 In short, to set it up, you need to:
 
-1. Create an account
-2. Enable the Azure IoT Hub integration
-3. Install the Azure IoT Edge module on your devices
+1. Create an Alvaldi account.
+2. Enable the Azure IoT Hub integration.
+3. Install the Azure IoT Edge module on your devices.
 
 At that point, you're ready to start using Alvaldi, seeing device information, creating terminal sessions and transferring files.
 
-## Step 1 - Create an account
+## Step 1 - Create an Alvaldi account
 
 You create an account via the signup page:
 

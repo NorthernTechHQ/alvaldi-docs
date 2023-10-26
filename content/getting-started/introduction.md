@@ -21,9 +21,9 @@ When compared to other troubleshooting and remote access solutions, it has some 
 
 For more information about how Alvaldi works, see these helpful resources:
 
-* [Architecture](/architecture)
-* [Security aspects of Alvaldi](/security)
-* [Frequently asked questions (FAQ)](/reference/faq)
+* [Architecture.](/architecture)
+* [Security aspects of Alvaldi.](/security)
+* [Frequently asked questions (FAQ).](/reference/faq)
 
 ## Up next
 

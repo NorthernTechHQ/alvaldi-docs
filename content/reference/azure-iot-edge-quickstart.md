@@ -12,7 +12,7 @@ This article serves as a short list of references and tips for users who may be 
 This means you can create a new IoT Hub for testing in your Azure account and test Alvaldi on a device and IoT Hub separate from the resources you already have in Azure.
 Provided you have the necessary access to create these kinds of resources, you don't need to set up a new Azure account.
 
-## Creating an account
+## Creating an Azure account
 
 If you don't have an Azure account yet, you can sign up via Microsoft's websites and get started using free credits:
 
@@ -22,7 +22,7 @@ https://azure.microsoft.com/en-us/free/iot/
 
 ## Creating an IoT Hub
 
-If/when you have an azure account, you can find the different Azure services at:
+If/when you have an Azure account, you can find the different Azure services at:
 
 https://portal.azure.com/
 
@@ -39,7 +39,7 @@ The Raspberry Pi Imager can help you download and flash the OS to an memory card
 
 https://www.raspberrypi.com/software/
 
-**PS: Inside the tool, don't choose the default OS, find the OS in the list of more options.**
+**Tip:** Inside the tool, don't choose the default OS, find the OS in the list of more options.
 
 ## Install the Azure IoT Edge runtime
 
@@ -74,7 +74,7 @@ export CONNECTION_STRING="INSERT YOUR CONNECTION STRING HERE"
 sudo iotedge config mp --connection-string "$CONNECTION_STRING"
 ```
 
-**Replace the connection string with the correct connection string for your device from Azure IoT Hub.**
+**Important:** Replace the connection string with the correct connection string for your device from Azure IoT Hub.
 
 Assuming you're using Debian 11 (Or Raspberry Pi OS based on Debian 11), this script summarizes the commands from the official documentation:
 
