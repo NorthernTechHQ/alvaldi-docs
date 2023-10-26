@@ -18,8 +18,8 @@ Yes, we use storage level encryption for all data in our backend databases, unen
 ## Is Alvaldi only available to Azure users?
 
 At this point, yes.
-Alvaldi currently only supports Azure IoT Edge devices.
-We will introduce more platforms and ways of using Alvaldi in the future, sign up for our newsletter at the bottom of this page to receive updates about Alvaldi.
+Alvaldi only supports Azure IoT Edge devices, currently.
+We will introduce more platforms and ways of using Alvaldi in the future, to get notified, sign up for our newsletter at the bottom of [our webpage](https://alvaldi.com).
 
 ## What does the Azure integration for Alvaldi include?
 

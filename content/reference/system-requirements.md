@@ -15,8 +15,8 @@ To use Alvaldi, you need:
 To install Alvaldi on your devices, they must have:
 
 * 32-bit ARM (armv6, armv7), 64-bit ARM or x86-64 CPU architecture.
-* The Azure IoT Edge container runtime
-* At least 11 MiB free storage and memory for the client
+* The Azure IoT Edge container runtime.
+* At least 11 MiB free storage and memory for the client.
 
 Currently, only Azure IoT Hub and Azure IoT Edge is supported, but we will introduce more platforms soon.
 See the [FAQ](/reference/faq) for more information.
