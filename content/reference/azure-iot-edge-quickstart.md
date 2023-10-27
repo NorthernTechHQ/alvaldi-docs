@@ -128,7 +128,7 @@ Click on the device and then **Set modules**:
 Don't add any modules, just click **Review + create**, and the **Create** to deploy the default modules (which should already be there).
 
 Once done, and any transient errors disappear, go through the same process one more time, but this time add a module.
-(Click device, **Set modules**, **Add module**, search for Simulated temperature sensor by microsoft, **Add**, **Review + create**, **Create**).
+(Click device, **Set modules**, **Add module**, search for Simulated temperature sensor by Microsoft, **Add**, **Review + create**, **Create**).
 
 When the SimulatedTemperatureSensor shows up as **running** in the modules of the device, you can click **running** to see the simulated temperature log messages coming from the device.
 
