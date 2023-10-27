@@ -13,6 +13,6 @@ The list of devices is the first thing you see when you log in to Alvaldi:
 
 Clicking on a device will lead you to its device info page, which hosts important troubleshooting functionality, such as:
 
-* [Terminal](./terminal)
-* [File transfer](./file-transfer)
-* [Inventory](./inventory)
+* [Terminal.](./terminal)
+* [File transfer.](./file-transfer)
+* [Inventory.](./inventory)
