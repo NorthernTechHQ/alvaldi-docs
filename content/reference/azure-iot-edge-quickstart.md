@@ -2,7 +2,6 @@
 title: Azure IoT Edge quickstart
 date: 2023-10-26:00:00+00:00
 preview_description: Steps and tips for new Azure IoT Edge users
-sorting: 4
 ---
 
 Since [the getting started tutorials](/getting-started) assume you are already using Azure IoT Edge and Azure IoT Hub, some newer users might benefit from a bit extra information.
