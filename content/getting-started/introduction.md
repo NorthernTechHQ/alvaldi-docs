@@ -29,4 +29,4 @@ For more information about how Alvaldi works, see these helpful resources:
 
 The next part of the getting started series is:
 
-[Signing up and installing Alvaldi.](/getting-started/setup).
+[Signing up and installing Alvaldi.](/getting-started/setup)
