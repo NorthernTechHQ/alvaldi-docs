@@ -11,7 +11,7 @@ When compared to other troubleshooting and remote access solutions, it has some 
 
 * Entirely in browser - users do not have to install local clients on their machines.
 * Easy to set up - this tutorial series will help you set it up in a few minutes.
-* Integrated with Azure - The list of devices is synchronized with Azure IoT Hub, and the client is installed on devices as a Azure IoT Edge module.
+* Integrated with Azure - Azure IoT Hub devices are automatically authorized in Alvaldi, and the client is installed on devices as a Azure IoT Edge module.
 * Audit logs - All user actions are logged, to see who did what, and when.
 * Encrypted - All communication is encrypted during transit (TLS / HTTPS), and all data in our database is encrypted at rest (storage level encryption).
 * RBAC - One organization can have multiple users with different roles and access.
