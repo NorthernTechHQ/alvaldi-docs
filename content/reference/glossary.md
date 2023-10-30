@@ -2,7 +2,6 @@
 title: Glossary
 date: 2023-07-12:00:00+00:00
 preview_description: List of commonly used terms and their meaning.
-sorting: 1
 ---
 
 Below you'll find a list of words and concepts that might be useful to understand when reading our documentation and using Alvaldi for remote troubleshooting.

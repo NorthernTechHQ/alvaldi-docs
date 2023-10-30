@@ -2,7 +2,6 @@
 title: System requirements
 date: 2023-10-03:00:00+00:00
 preview_description: Requirements for systems to run Alvaldi
-sorting: 3
 ---
 
 Alvaldi lets you remotely access and troubleshoot connected devices, giving you information about the device, and the ability to transfer files and run commands in a terminal.
