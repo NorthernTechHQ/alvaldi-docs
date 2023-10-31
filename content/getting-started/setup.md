@@ -49,8 +49,6 @@ Now we need to install the client on device(s) - the Azure IoT Edge module.
 
 ## Step 3 - Installing the Azure IoT Edge module
 
-**TODO: Update this section once the Alvaldi Edge module is published in the Azure marketplace**
-
 Your devices will not show up in Alvaldi until you install the client on them (the Alvaldi IoT Edge module).
 In the device list, you will see:
 
@@ -68,8 +66,7 @@ Find the Azure IoT Edge devices in the Azure portal, and click **Set modules**:
 
 {{< wideimg "/azure-iot-edge-set-modules.png" "IoT Edge UI with the Set modules button highlighted.">}}
 
-Add our Alvaldi Edge module, and fill out the necessary configuration, shown below.
-Apart from your Alvaldi organization token, everything else should be default / pre-filled.
+Add a module and fill out the necessary configuration below:
 
 **Module name:** Up to you, can be: `alvaldi-edge-module`.
 
@@ -103,6 +100,9 @@ CONNECT_TENANT_TOKEN=TENANT_TOKEN_FROM_YOUR_ALVALDI_ACCOUNT
   }
 }
 ```
+
+**Note:** We are working on getting Alvaldi published as an Azure IoT Edge module in the Azure Marketplace.
+Once that is in place, the values above will be pre-filled if you select the module in the marketplace.
 
 ## The device shows up
 
