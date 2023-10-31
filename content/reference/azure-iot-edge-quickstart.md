@@ -45,7 +45,15 @@ https://www.raspberrypi.com/software/
 You need to create a device in your IoT Hub, to get a connection string.
 For simplicity when testing, we recommend [provisioning devices using symmetric keys](https://learn.microsoft.com/en-us/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-1.4&tabs=azure-portal%2Cubuntu).
 
-After creating the device in the Azure IoT Hub UI, the short version of what you need to run on the Debian 11 device is:
+To find the connection string for a device, navigate to your IoT Hub, and find the device in the **Devices** list:
+
+{{< wideimg "/azure-iot-edge-device.png" "Screenshot of finding a device in the Azure devices list UI.">}}
+
+Then click on the name of the device to see the connection string among other information:
+
+{{< wideimg "/azure-iot-edge-device-connection-string.png" "Screenshot of the device information, including ">}}
+
+After you've created the device and have the connection string, this is the short version of what you need to run, on a Debian 11 device:
 
 ```sh
 # Summary of Debian 11 commands from:
