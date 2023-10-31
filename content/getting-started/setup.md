@@ -36,6 +36,12 @@ When you log in for the first time, you will get a modal window guiding you to t
 {{< img "/azure-integration-popup.png" "Popup window with button for users to set up the Azure integration.">}}
 
 Click the button, or navigate there manually via **Settings** -> **Integrations**.
+
+Here you will need to enter the connection string from your IoT Hub, in Azure.
+It can be found inside the policy you wish to use, under **Shared access policies** inside the IoT Hub:
+
+{{< wideimg "/azure-iot-hub-connection-string.png" "Screenshot showing the information for a shared access policy of an Azure IoT Hub, including its primary / secondary key and primary / secondary connection string.">}}
+
 Copy the connection string from your IoT Hub in Azure, to the text field in Alvaldi and press **Save**.
 
 Device identities are now synchronized with Azure; when a device connects to Alvaldi it will be automatically approved.
