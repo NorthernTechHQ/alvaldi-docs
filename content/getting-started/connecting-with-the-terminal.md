@@ -33,4 +33,4 @@ As an example, we can click **Connect Terminal** to connect the terminal and run
 
 The next part of the getting started series is:
 
-[Transferring files.](/getting-started/transferring-files).
+[Transferring files.](/getting-started/transferring-files)
