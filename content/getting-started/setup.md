@@ -49,6 +49,8 @@ Now we need to install the client on device(s) - the Azure IoT Edge module.
 
 ## Step 3 - Installing the Azure IoT Edge module
 
+**TODO: Update this section once the Alvaldi Edge module is published in the Azure marketplace**
+
 Your devices will not show up in Alvaldi until you install the client on them (the Alvaldi IoT Edge module).
 In the device list, you will see:
 
