@@ -36,6 +36,12 @@ When you log in for the first time, you will get a modal window guiding you to t
 {{< img "/azure-integration-popup.png" "Popup window with button for users to set up the Azure integration.">}}
 
 Click the button, or navigate there manually via **Settings** -> **Integrations**.
+
+Here you will need to enter the connection string from your IoT Hub, in Azure.
+It can be found inside the policy you wish to use, under **Shared access policies** inside the IoT Hub:
+
+{{< wideimg "/azure-iot-hub-connection-string.png" "Screenshot showing the information for a shared access policy of an Azure IoT Hub, including its primary / secondary key and primary / secondary connection string.">}}
+
 Copy the connection string from your IoT Hub in Azure, to the text field in Alvaldi and press **Save**.
 
 Device identities are now synchronized with Azure; when a device connects to Alvaldi it will be automatically approved.
@@ -60,8 +66,7 @@ Find the Azure IoT Edge devices in the Azure portal, and click **Set modules**:
 
 {{< wideimg "/azure-iot-edge-set-modules.png" "IoT Edge UI with the Set modules button highlighted.">}}
 
-Add our Alvaldi Edge module, and fill out the necessary configuration, shown below.
-Apart from your Alvaldi organization token, everything else should be default / pre-filled.
+Add a module and fill out the necessary configuration below:
 
 **Module name:** Up to you, can be: `alvaldi-edge-module`.
 
@@ -95,6 +100,9 @@ CONNECT_TENANT_TOKEN=TENANT_TOKEN_FROM_YOUR_ALVALDI_ACCOUNT
   }
 }
 ```
+
+**Note:** We are working on getting Alvaldi published as an Azure IoT Edge module in the Azure Marketplace.
+Once that is in place, the values above will be pre-filled if you select the module in the marketplace.
 
 ## The device shows up
 
