@@ -114,4 +114,4 @@ https://app.alvaldi.com/ui/devices
 
 The next part of the getting started series is:
 
-[Connecting with the terminal.](/getting-started/connecting-with-the-terminal).
+[Connecting with the terminal.](/getting-started/connecting-with-the-terminal)
