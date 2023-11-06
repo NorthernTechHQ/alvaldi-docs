@@ -408,7 +408,7 @@ pre {
   grid-template-areas:
     "navigation article"
     "navigation article";
-  grid-template-columns: 36rem 100%;
+  grid-template-columns: 36rem 1fr;
   min-height: calc(100vh - 378px); // 100 viewport height minus header and footer height to stick the footer to the bottom
 
   @media @tablet-down {
@@ -436,16 +436,8 @@ aside {
 
 article {
   grid-area: article;
-  max-width: calc(100% - 73rem);
   @media @desktop-wide-down {
-    max-width: 56rem;
     margin-right: 0 !important;
-  }
-  @media @tablet-down {
-    max-width: 65rem;
-  }
-  @media (max-width: 750px) {
-    max-width: 56rem;
   }
   @media @phone-down {
     min-width: 0;
