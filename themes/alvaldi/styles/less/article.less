@@ -11,7 +11,7 @@ article {
     "title  table-of-contents"
     "content  table-of-contents"
     "content  table-of-contents";
-    grid-template-columns: 100% 24rem;
+    grid-template-columns: 1fr 24rem;
     column-gap: 9.6rem;
 
     @media @desktop-wide-down {
@@ -42,6 +42,14 @@ article {
 
     img, iframe {
       padding: 32px 16px 40px;
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 70%;
+    }
+    
+    iframe {
       max-width: 100%;
     }
 
