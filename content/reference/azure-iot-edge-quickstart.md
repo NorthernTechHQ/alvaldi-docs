@@ -69,7 +69,7 @@ sudo apt-get update
 sudo apt-get install moby-engine
 
 # Fix DNS and logs:
-echo '{"log-driver": "local", "dns": ["1.1.1.1"]}' > /etc/docker/daemon.json
+sudo echo '{"log-driver": "local", "dns": ["1.1.1.1"]}' > /etc/docker/daemon.json
 sudo systemctl restart docker
 
 # Install the Azure IoT Edge client / tools:
@@ -79,6 +79,7 @@ sudo apt-get install aziot-edge
 # Configure / start the Azure IoT Edge client:
 export CONNECTION_STRING="INSERT YOUR CONNECTION STRING HERE"
 sudo iotedge config mp --connection-string "$CONNECTION_STRING"
+sudo iotedge config apply
 ```
 
 **Important:** Replace the connection string with the correct connection string for your device from Azure IoT Hub.
@@ -107,7 +108,7 @@ docker ps
 See the status of Azure IoT Edge modules with:
 
 ```
-iotedge status
+iotedge system status
 ```
 
 And run the check command to look for potential issues:
