@@ -86,7 +86,8 @@ CONNECT_TENANT_TOKEN=TENANT_TOKEN_FROM_YOUR_ALVALDI_ACCOUNT
     "Privileged": true,
     "NetworkMode": "host",
     "Binds": [
-      "/:/host"
+      "/:/host",
+      "/var/lib/nt-connect:/var/lib/nt-connect"
     ]
   },
   "NetworkingConfig": {
