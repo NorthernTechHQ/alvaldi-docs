@@ -39,8 +39,8 @@
       display: none;
       flex-direction: column;
       background: #FFFFFF;
-      z-index: 10;
-      width: 24.3rem;
+      // we scale the width of side menu from 433 down to 243
+      width: calc(43.3rem + (243 - 433) / (320 - 1023) * (100vw - 102.3rem));
       order: 10;
       right: 0;
       position: fixed;
