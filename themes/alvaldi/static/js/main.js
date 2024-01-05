@@ -98,6 +98,10 @@ const renderNestedMenu = function (href) {
 
         ul.classList.add('mainMenu');
         document.querySelector('.left-menu ul.mainMenu').replaceWith(ul);
+        const selected = document.querySelector('li[data-url="' + document.location.pathname + '"]');
+        if (selected){
+            selected.className += ' opened current';
+        }
     }
 
     applyOnclickToMenuItems();
