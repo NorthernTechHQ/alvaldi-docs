@@ -58,48 +58,27 @@ In your Alvaldi account, go to **Settings**, and then **Organization and billing
 There you will see your **Organization token** (Tenant token).
 Keep this window / tab open, you will need to copy the token soon.
 
-Find the Azure IoT Edge devices in the Azure portal, and click **Set modules**:
+Find the Alvaldi edge module in the Azure marketplace:
 
-{{< wideimg "/azure-iot-edge-set-modules.png" "IoT Edge UI with the Set modules button highlighted.">}}
+https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=alvaldi-edge-module&page=1
 
-Add a module and fill out the necessary configuration below:
+**Note:** We have 2 products listed on the Azure marketplace: **Alvaldi** for subscribing to a paid plan of Alvaldi via Azure, and **Alvaldi edge module** for installing the client on your Azure IoT Edge devices.
 
-**Module name:** Up to you, can be: `alvaldi-edge-module`.
+Click on **Get it now** and **Continue** to start the process of deploying the module.
+You'll be redirected to the Azure Portal UI, letting you specify the device(s):
 
-**Image URI:** `northerntech/nt-connect:main`.
+{{< wideimg "/edge-module-target-devices.png" "Screenshot of Azure's UI for targeting which devices to deploy to.">}}
 
-**Environment variables:**
+Enter the IoT Edge device name or use the **Find Device** button if you don't remember it.
+Continue by clicking **Create** once, but **do not click** the next **Review + create** button yet.
 
-```sh
-CONNECT_CHROOT=/host
-CONNECT_SERVER_URL=https://app.alvaldi.com
-CONNECT_TENANT_TOKEN=TENANT_TOKEN_FROM_YOUR_ALVALDI_ACCOUNT
-```
+We first have to enter the Alvaldi tenant token - Click the name of the module (**Alvaldiedgemodule**) in order to edit it.
+Go to the **Environment Variables** tab, and paste the tenant token from above (from Alvaldi settings) into the 3rd value:
 
-**Important:** Put your real tenant token from Alvaldi settings into the variable(!).
+{{< wideimg "/edge-module-edit-tenant-token.png" "Azure Module UI, showing the edited TENANT_TOKEN environment variable.">}}
 
-**Container create options:**
-
-```json
-{
-  "HostConfig": {
-    "Privileged": true,
-    "NetworkMode": "host",
-    "Binds": [
-      "/:/host",
-      "/var/lib/nt-connect:/var/lib/nt-connect"
-    ]
-  },
-  "NetworkingConfig": {
-    "EndpointsConfig": {
-      "host": {}
-    }
-  }
-}
-```
-
-**Note:** We are working on getting Alvaldi published as an Azure IoT Edge module in the Azure Marketplace.
-Once that is in place, the values above will be pre-filled if you select the module in the marketplace.
+You can also change the name, if you want.
+Once done, you can click **Apply**, then **Review + create**, and **Create** to deploy the module.
 
 ## The device shows up
 
