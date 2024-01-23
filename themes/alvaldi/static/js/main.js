@@ -1,39 +1,28 @@
 'use strict';
 const currentUrl = document.location.pathname;
 
-(function addCopyToClipboardButtonToCode() {
-    document.querySelectorAll('pre').forEach(function (pre) {
-        let closest = pre.closest('div.highlight');
-        if (!closest) {
-            // code blocks without highlighting do not have wrapper that is using to contain copy button
-            closest = document.createElement('div');
-            closest.classList.add('highlight')
-            pre.parentNode.insertBefore(closest, pre);
-            closest.appendChild(pre);
-        }
+document.querySelectorAll('pre').forEach(function (pre) {
+    const closest = pre.closest('div.highlight-command');
+    if (closest) {
+        closest.innerHTML += '<i data-closest=".highlight-command" data-copyfrom="code" class="bi bi-clipboard copy-to-clipboard"></i>';
+    }
+});
 
-        closest.innerHTML += '<i data-closest=".highlight" data-copyfrom="code" class="bi bi-clipboard copy-to-clipboard"></i>';
-    });
-
-    document.querySelectorAll(".copy-to-clipboard").forEach(function (el) {
-        el.addEventListener("click", function (event) {
-            event.preventDefault();
-            let target = event.target;
-            let copyText = target
-                .closest(event.target.dataset.closest)
-                .querySelector(event.target.dataset.copyfrom)
-                .innerText
-                .replace(/\n+$/, ""); // remove trailing newlines from the copied text
-            navigator.clipboard.writeText(copyText);
-            target.classList.remove('bi-clipboard');
-            target.className += ' bi-check2 ';
-            setTimeout(function () {
-                target.className = 'bi bi-clipboard copy-to-clipboard'
-            }, 2000);
-        })
-    });
-})();
-
+document.querySelectorAll(".copy-to-clipboard").forEach(function (el) {
+    el.addEventListener("click", function (event) {
+        event.preventDefault();
+        const target = event.target;
+        const copyText = target
+            .closest(event.target.dataset.closest)
+            .querySelector(event.target.dataset.copyfrom)
+            .innerText
+            .replace(/\n+$/, ""); // remove trailing newlines from the copied text
+        navigator.clipboard.writeText(copyText);
+        target.classList.remove('bi-clipboard');
+        target.className += ' bi-check2 ';
+        setTimeout(function ()  { target.className = 'bi bi-clipboard copy-to-clipboard' }, 2000);
+    })
+});
 
 (function tocToggleHandler() {
     const tableOfContents = document.querySelector('.table-of-contents .TOC');
