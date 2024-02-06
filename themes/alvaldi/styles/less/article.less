@@ -12,7 +12,6 @@ article {
     "content  table-of-contents"
     "content  table-of-contents";
     grid-template-columns: 1fr 24rem;
-    column-gap: 9.6rem;
 
     @media @desktop-wide-down {
       column-gap: 5.6rem;
@@ -39,6 +38,7 @@ article {
     .main-content {
       grid-area: content;
       overflow: auto;
+      padding-right: 9.6rem;
     }
 
     img, iframe {
