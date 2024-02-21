@@ -195,7 +195,7 @@ if (window.innerWidth > 1023) {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const anchors = document.querySelectorAll(".article h1, .article h2, .article h3, .article h4, .article h5, .article h6");
+    const anchors = document.querySelectorAll(".article h1, .article h2, .article h3, .article h4");
     anchors.forEach(function (el) {
         let url = new URL(window.location.href);
         el.insertAdjacentHTML('beforeend', '<a class="anchor" href="' + url.origin + url.pathname + '#' + el.id + '"><i class="bi bi-link-45deg"></i></a>');
@@ -224,15 +224,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // offsetTop returns offset to the offsetParent, which is main wrapper, we need to add 130px to get actual offset
-        const fetchOffsets = anchors => [...anchors].map(a => a.offsetTop + 130);
-        let anchorsOffsets = fetchOffsets(anchors);
+        const fetchOffsets = anchors => [...anchors].map(a => a.offsetTop + 70);
+        let anchorsOffsets;
 
         let timeout = undefined;
         const updateActiveTocItem = () => {
             if (timeout) {
                 clearTimeout(timeout)
             }
-
+            anchorsOffsets = fetchOffsets(anchors);
             // The current TOC menu item will be calculated in 100 ms after the user stops scrolling.
             // Otherwise, there might be redundant calculations.
             timeout = setTimeout( () => {
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 for (let i = anchorsOffsets.length - 1; i >= 0; i--) {
                     if (scrollTop > anchorsOffsets[i]) {
-                        setActiveLink(anchors[i].id);
+                        setActiveLink(anchors[i].id, i);
                         break;
                     }
                 }
@@ -249,13 +249,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        const setActiveLink = (id) => {
+        const setActiveLink = (id, n) => {
             const activeLink = document.querySelector(`#TOCbox_list li a[href$="#${id}"]`);
             if (activeLink) {
                 activeLink.classList.add('current');
             }
+            const tocWrapper = document.getElementById('TOCbox_wrapper');
+            const TOC_TOP_OFFSET = 42;
+            let i = 0;
+            const offsetArr = [...tocLinks].map((el,)=>{
+                const li = el.parentElement;
+                i+=li.clientHeight + parseInt(window.getComputedStyle(li).getPropertyValue('margin-bottom'));
+                return i;
+            })
+            const selectedOffset = window.innerHeight-TOC_TOP_OFFSET - (Math.min(offsetArr.length -1 , n + 1))
+            tocWrapper.style.top = (selectedOffset < 0 ? 12 + selectedOffset : 12) + 'px';
         }
-
+        if (window.location.hash){
+            const id = window.location.hash.slice(1);
+            const n = [...anchors].findIndex(a => a.id === id);
+            setActiveLink(id, n);
+        }
         window.addEventListener('scroll', updateActiveTocItem);
         window.addEventListener("resize", () => {
             // anchors position change when the window is resized
