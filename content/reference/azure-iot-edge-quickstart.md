@@ -101,19 +101,19 @@ Which we have in the script above.
 After following the tutorial above, or running the script, your device should be showing up in IoT Hub, and ready to receive IoT Edge modules.
 On the device, you can see the running containers with:
 
-```
+```command
 docker ps
 ```
 
 See the status of Azure IoT Edge modules with:
 
-```
+```command
 iotedge system status
 ```
 
 And run the check command to look for potential issues:
 
-```
+```command
 iotedge check
 ```
 

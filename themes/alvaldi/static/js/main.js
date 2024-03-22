@@ -1,39 +1,28 @@
 'use strict';
 const currentUrl = document.location.pathname;
 
-(function addCopyToClipboardButtonToCode() {
-    document.querySelectorAll('pre').forEach(function (pre) {
-        let closest = pre.closest('div.highlight');
-        if (!closest) {
-            // code blocks without highlighting do not have wrapper that is using to contain copy button
-            closest = document.createElement('div');
-            closest.classList.add('highlight')
-            pre.parentNode.insertBefore(closest, pre);
-            closest.appendChild(pre);
-        }
+document.querySelectorAll('pre').forEach(function (pre) {
+    const closest = pre.closest('div.highlight-command');
+    if (closest) {
+        closest.innerHTML += '<i data-closest=".highlight-command" data-copyfrom="code" class="bi bi-clipboard copy-to-clipboard"></i>';
+    }
+});
 
-        closest.innerHTML += '<i data-closest=".highlight" data-copyfrom="code" class="bi bi-clipboard copy-to-clipboard"></i>';
-    });
-
-    document.querySelectorAll(".copy-to-clipboard").forEach(function (el) {
-        el.addEventListener("click", function (event) {
-            event.preventDefault();
-            let target = event.target;
-            let copyText = target
-                .closest(event.target.dataset.closest)
-                .querySelector(event.target.dataset.copyfrom)
-                .innerText
-                .replace(/\n+$/, ""); // remove trailing newlines from the copied text
-            navigator.clipboard.writeText(copyText);
-            target.classList.remove('bi-clipboard');
-            target.className += ' bi-check2 ';
-            setTimeout(function () {
-                target.className = 'bi bi-clipboard copy-to-clipboard'
-            }, 2000);
-        })
-    });
-})();
-
+document.querySelectorAll(".copy-to-clipboard").forEach(function (el) {
+    el.addEventListener("click", function (event) {
+        event.preventDefault();
+        const target = event.target;
+        const copyText = target
+            .closest(event.target.dataset.closest)
+            .querySelector(event.target.dataset.copyfrom)
+            .innerText
+            .replace(/\n+$/, ""); // remove trailing newlines from the copied text
+        navigator.clipboard.writeText(copyText);
+        target.classList.remove('bi-clipboard');
+        target.className += ' bi-check2 ';
+        setTimeout(function ()  { target.className = 'bi bi-clipboard copy-to-clipboard' }, 2000);
+    })
+});
 
 (function tocToggleHandler() {
     const tableOfContents = document.querySelector('.table-of-contents .TOC');
@@ -206,7 +195,7 @@ if (window.innerWidth > 1023) {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const anchors = document.querySelectorAll(".article h1, .article h2, .article h3, .article h4, .article h5, .article h6");
+    const anchors = document.querySelectorAll(".article h1, .article h2, .article h3, .article h4");
     anchors.forEach(function (el) {
         let url = new URL(window.location.href);
         el.insertAdjacentHTML('beforeend', '<a class="anchor" href="' + url.origin + url.pathname + '#' + el.id + '"><i class="bi bi-link-45deg"></i></a>');
@@ -235,15 +224,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // offsetTop returns offset to the offsetParent, which is main wrapper, we need to add 130px to get actual offset
-        const fetchOffsets = anchors => [...anchors].map(a => a.offsetTop + 130);
-        let anchorsOffsets = fetchOffsets(anchors);
+        const fetchOffsets = anchors => [...anchors].map(a => a.offsetTop + 70);
+        let anchorsOffsets;
 
         let timeout = undefined;
         const updateActiveTocItem = () => {
             if (timeout) {
                 clearTimeout(timeout)
             }
-
+            anchorsOffsets = fetchOffsets(anchors);
             // The current TOC menu item will be calculated in 100 ms after the user stops scrolling.
             // Otherwise, there might be redundant calculations.
             timeout = setTimeout( () => {
@@ -252,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 for (let i = anchorsOffsets.length - 1; i >= 0; i--) {
                     if (scrollTop > anchorsOffsets[i]) {
-                        setActiveLink(anchors[i].id);
+                        setActiveLink(anchors[i].id, i);
                         break;
                     }
                 }
@@ -260,13 +249,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-        const setActiveLink = (id) => {
+        const setActiveLink = (id, n) => {
             const activeLink = document.querySelector(`#TOCbox_list li a[href$="#${id}"]`);
             if (activeLink) {
                 activeLink.classList.add('current');
             }
+            const tocWrapper = document.getElementById('TOCbox_wrapper');
+            const TOC_TOP_OFFSET = 42;
+            let i = 0;
+            const offsetArr = [...tocLinks].map((el,)=>{
+                const li = el.parentElement;
+                i+=li.clientHeight + parseInt(window.getComputedStyle(li).getPropertyValue('margin-bottom'));
+                return i;
+            })
+            const selectedOffset = window.innerHeight-TOC_TOP_OFFSET - (Math.min(offsetArr.length -1 , n + 1))
+            tocWrapper.style.top = (selectedOffset < 0 ? 12 + selectedOffset : 12) + 'px';
         }
-
+        if (window.location.hash){
+            const id = window.location.hash.slice(1);
+            const n = [...anchors].findIndex(a => a.id === id);
+            setActiveLink(id, n);
+        }
         window.addEventListener('scroll', updateActiveTocItem);
         window.addEventListener("resize", () => {
             // anchors position change when the window is resized

@@ -12,7 +12,6 @@ article {
     "content  table-of-contents"
     "content  table-of-contents";
     grid-template-columns: 1fr 24rem;
-    column-gap: 9.6rem;
 
     @media @desktop-wide-down {
       column-gap: 5.6rem;
@@ -39,6 +38,7 @@ article {
     .main-content {
       grid-area: content;
       overflow: auto;
+      padding-right: 9.6rem;
     }
 
     img, iframe {
@@ -88,13 +88,13 @@ article {
     }
 
     h4 {
-      font-size: 18px;
+      font-size: 16px;
       line-height: 24px;
       margin-top: 2.4rem;
     }
 
     h5 {
-      font-size: 17px;
+      font-size: 15px;
       line-height: 24px;
       margin-top: 2.4rem;
     }
@@ -122,7 +122,7 @@ article {
       transition: filter ease 0.25s;
       &:hover {
         border-bottom: none;
-        filter: drop-shadow(0px 2px 16px rgba(0, 0, 0, 0.1));
+        filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.1));
       }
     }
 

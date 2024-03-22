@@ -1,16 +1,20 @@
 ---
-title: Setup
+title: Setup with Azure
 date: 2023-07-12:00:00+00:00
 preview_description: Create you account and install our module on your devices.
 sorting: 2
 ---
+
+With our Azure IoT Hub integration, and Azure IoT Edge module, it's easy to deploy Alvaldi to devices, and have your device list automatically synchronized with Alvaldi;
+
+{{< img "/azure-how-it-works.png" "Diagram with Alvaldi communicating with a user, a device and the Azure IoT Hub.">}}
 
 In this tutorial, we assume that you're already using Azure IoT Hub and Azure IoT Edge.
 If you need help with using Azure IoT Hub / IoT Edge for the first time, take a look at our [Azure IoT Edge quickstart](/reference/azure-iot-edge-quickstart).
 
 There are 3 short steps you need to complete to set up Alvaldi before using it for the first time:
 
-{{< wideimg "/getting-started.png" "Diagram with the 4 steps, sign up, enable integration, install module, connect">}}
+{{< wideimg "/azure-getting-started.png" "Diagram with the 4 steps, sign up, enable integration, install module, connect">}}
 
 In short, to set it up, you need to:
 
