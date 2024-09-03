@@ -1,8 +1,8 @@
 FROM --platform=$BUILDPLATFORM node:alpine AS build
 ARG TARGETPLATFORM
 WORKDIR /alvaldi-docs
-ADD https://github.com/gohugoio/hugo/releases/download/v0.124.1/hugo_0.124.1_Linux-64bit.tar.gz hugo.tar.gz
-RUN echo "b2b20fea637bc2a1e98b7ac93da0e4bb39ebb45ea73f261efb0de0a6f3ea87fd  hugo.tar.gz" | sha256sum -c
+ADD https://github.com/gohugoio/hugo/releases/download/v0.134.0/hugo_0.134.0_Linux-64bit.tar.gz hugo.tar.gz
+RUN echo "cf5f0037614dd5bf1e7cc6ea73c5a18869f5cf78ef8c70c2ba7d28e243b3d309  hugo.tar.gz" | sha256sum -c
 RUN tar -zxvf hugo.tar.gz
 COPY ./ /alvaldi-docs
 RUN npm install less
