@@ -1,6 +1,6 @@
 ---
 title: Introduction
-date: 2023-07-12:00:00+00:00
+date: 2023-07-12T00:00:00+00:00
 preview_description: Learn about what Alvaldi is and how it works.
 sorting: 1
 ---

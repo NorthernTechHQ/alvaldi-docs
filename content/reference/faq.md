@@ -1,6 +1,6 @@
 ---
 title: FAQ
-date: 2023-07-12:00:00+00:00
+date: 2023-07-12T00:00:00+00:00
 preview_description: Frequently asked questions.
 ---
 

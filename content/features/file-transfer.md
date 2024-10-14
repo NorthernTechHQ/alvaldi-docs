@@ -1,6 +1,6 @@
 ---
 title: File transfer
-date: 2023-07-12:00:00+00:00
+date: 2023-07-12T00:00:00+00:00
 ---
 
 Inside the device info page, below the terminal, there is a section for uploading and downloading files:
