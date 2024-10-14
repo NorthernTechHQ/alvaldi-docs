@@ -1,6 +1,6 @@
 ---
 title: Session playback
-date: 2023-07-12:00:00+00:00
+date: 2023-07-12T00:00:00+00:00
 ---
 
 From within the [audit log](./audit-log) you can open up individual terminal events to see details about that event and play back the session:

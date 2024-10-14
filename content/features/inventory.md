@@ -1,6 +1,6 @@
 ---
 title: Inventory
-date: 2023-07-12:00:00+00:00
+date: 2023-07-12T00:00:00+00:00
 ---
 
 On the right side of the device info page, you can find information about the device:

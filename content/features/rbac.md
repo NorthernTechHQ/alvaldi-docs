@@ -1,6 +1,6 @@
 ---
 title: Role-based access control (RBAC)
-date: 2023-07-12:00:00+00:00
+date: 2023-07-12T00:00:00+00:00
 ---
 
 It is recommended to use role-based access control (RBAC) to limit access and adhere to the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).

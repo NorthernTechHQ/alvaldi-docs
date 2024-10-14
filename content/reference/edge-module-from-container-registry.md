@@ -1,6 +1,6 @@
 ---
 title: Edge module from container registry
-date: 2024-01-19:00:00+00:00
+date: 2024-01-19T00:00:00+00:00
 preview_description: Use Azure IoT Edge to install the alvaldi client from our container registry
 ---
 

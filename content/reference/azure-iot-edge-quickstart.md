@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge quickstart
-date: 2023-10-26:00:00+00:00
+date: 2023-10-26T00:00:00+00:00
 preview_description: Steps and tips for new Azure IoT Edge users
 ---
 
