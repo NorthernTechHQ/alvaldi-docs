@@ -12,7 +12,7 @@ RUN npm install --prefix /alvaldi-docs/scripts/search/index
 RUN npm install --prefix /alvaldi-docs/scripts/search/server
 RUN node /alvaldi-docs/scripts/menuBuilder.js
 RUN node /alvaldi-docs/scripts/search/index/createIndex.js
-RUN ./hugo -v
+RUN ./hugo --logLevel info
 RUN find public -type f -regex '^.*\.\(svg\|css\|html\|xml\|gif\)$' -size +1k -exec gzip -k '{}' \;
 
 FROM nginx:stable-alpine
