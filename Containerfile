@@ -1,8 +1,8 @@
 FROM --platform=$BUILDPLATFORM node:alpine AS build
 ARG TARGETPLATFORM
 WORKDIR /alvaldi-docs
-ADD https://github.com/gohugoio/hugo/releases/download/v0.135.0/hugo_0.135.0_Linux-64bit.tar.gz hugo.tar.gz
-RUN echo "ba6adcca5bb8ea899f712bfa5734c91602ed17eae31917919ca40547853b1394  hugo.tar.gz" | sha256sum -c
+ADD https://github.com/gohugoio/hugo/releases/download/v0.141.0/hugo_0.141.0_Linux-64bit.tar.gz hugo.tar.gz
+RUN echo "aba5615b03fb3f05582d0bd2787164b44723fd1a0901dac48d5e9524cff6e6b9  hugo.tar.gz" | sha256sum -c
 RUN tar -zxvf hugo.tar.gz
 COPY ./ /alvaldi-docs
 RUN npm install less
@@ -12,7 +12,7 @@ RUN npm install --prefix /alvaldi-docs/scripts/search/index
 RUN npm install --prefix /alvaldi-docs/scripts/search/server
 RUN node /alvaldi-docs/scripts/menuBuilder.js
 RUN node /alvaldi-docs/scripts/search/index/createIndex.js
-RUN ./hugo -v
+RUN ./hugo --logLevel info
 RUN find public -type f -regex '^.*\.\(svg\|css\|html\|xml\|gif\)$' -size +1k -exec gzip -k '{}' \;
 
 FROM nginx:stable-alpine
