@@ -4,15 +4,17 @@ WORKDIR /alvaldi-docs
 ADD https://github.com/gohugoio/hugo/releases/download/v0.150.1/hugo_0.150.1_Linux-64bit.tar.gz hugo.tar.gz
 RUN echo "c91fbd9d47c87d604a831b9ea86aa54009a686485df5f8b1d39758fddd5e5b09  hugo.tar.gz" | sha256sum -c
 RUN tar -zxvf hugo.tar.gz
+RUN mv hugo /usr/local/bin/hugo && chmod +x /usr/local/bin/hugo
+
 COPY ./ /alvaldi-docs
-RUN npm install less
-RUN npx -p less lessc --compress /alvaldi-docs/themes/alvaldi/styles/alvaldi.less /alvaldi-docs/themes/alvaldi/static/css/style.min.css
-RUN npm install --prefix /alvaldi-docs/themes/alvaldi/static/fonts bootstrap-icons  @fontsource/red-hat-display @fontsource/red-hat-text @fontsource/red-hat-mono @fontsource/roboto
-RUN npm install --prefix /alvaldi-docs/scripts/search/index
-RUN npm install --prefix /alvaldi-docs/scripts/search/server
-RUN node /alvaldi-docs/scripts/menuBuilder.js
-RUN node /alvaldi-docs/scripts/search/index/createIndex.js
-RUN ./hugo --logLevel info
+
+RUN apk add --no-cache git
+RUN git clone --branch main --single-branch https://github.com/NorthernTechHQ/nt-docs.git /tmp/nt-docs
+RUN cp -rn /tmp/nt-docs/* /alvaldi-docs/
+RUN rm -rf /tmp/nt-docs
+
+RUN npm ci
+RUN npm run build:all
 RUN find public -type f -regex '^.*\.\(svg\|css\|html\|xml\|gif\)$' -size +1k -exec gzip -k '{}' \;
 
 FROM nginx:stable-alpine
