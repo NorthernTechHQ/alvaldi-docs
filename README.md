@@ -1,5 +1,17 @@
 # Alvaldi Docs
 
+## Initial Setup
+
+This repository uses git submodules to include the `nt-docs` repository which provides the docs theme and scripts. After cloning, you need to initialize the submodules:
+
+```bash
+# When cloning for the first time
+git clone --recurse-submodules https://github.com/your-org/alvaldi-docs.git
+
+# Or if you already cloned:
+git submodule update --init --recursive
+```
+
 ## Local preview
 
 Using docker / podman to build and serve is fairly straight forward:

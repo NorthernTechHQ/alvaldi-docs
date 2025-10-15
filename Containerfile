@@ -9,9 +9,8 @@ RUN mv hugo /usr/local/bin/hugo && chmod +x /usr/local/bin/hugo
 COPY ./ /alvaldi-docs
 
 RUN apk add --no-cache git
-RUN git clone --branch main --single-branch https://github.com/NorthernTechHQ/nt-docs.git /tmp/nt-docs
-RUN cp -rn /tmp/nt-docs/* /alvaldi-docs/
-RUN rm -rf /tmp/nt-docs
+RUN git submodule update --init --recursive
+RUN mv -n /alvaldi-docs/nt-docs/* /alvaldi-docs/
 
 RUN npm ci
 RUN npm run build:all
