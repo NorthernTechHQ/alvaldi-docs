@@ -1,7 +1,0 @@
-{{/* if an image src is a URL or static directory then no need for prefix otherwise `../` to support relative URLs */}}
-{{ $srcPrefix := cond (or (gt (len (findRE "^(www|/|http:|https:).*?" .Destination)) 0) (fileExists (printf "%s%s" "/static/"  .Destination ))) "" "../"}}
-<img
-    src="{{ $srcPrefix }}{{ .Destination | safeURL }}"
-    alt="{{ .Text }}"
-    {{ with .Title}} title="{{ . }}"{{ end }}
-/>

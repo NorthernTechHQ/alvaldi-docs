@@ -4,15 +4,16 @@ WORKDIR /alvaldi-docs
 ADD https://github.com/gohugoio/hugo/releases/download/v0.151.0/hugo_0.151.0_Linux-64bit.tar.gz hugo.tar.gz
 RUN echo "1fea04cb0d467a90981f9837ad6ab171fe27e0d6d1bdd5fa4ba54a3464c90114  hugo.tar.gz" | sha256sum -c
 RUN tar -zxvf hugo.tar.gz
+RUN mv hugo /usr/local/bin/hugo && chmod +x /usr/local/bin/hugo
+
 COPY ./ /alvaldi-docs
-RUN npm install less
-RUN npx -p less lessc --compress /alvaldi-docs/themes/alvaldi/styles/alvaldi.less /alvaldi-docs/themes/alvaldi/static/css/style.min.css
-RUN npm install --prefix /alvaldi-docs/themes/alvaldi/static/fonts bootstrap-icons  @fontsource/red-hat-display @fontsource/red-hat-text @fontsource/red-hat-mono @fontsource/roboto
-RUN npm install --prefix /alvaldi-docs/scripts/search/index
-RUN npm install --prefix /alvaldi-docs/scripts/search/server
-RUN node /alvaldi-docs/scripts/menuBuilder.js
-RUN node /alvaldi-docs/scripts/search/index/createIndex.js
-RUN ./hugo --logLevel info
+
+RUN apk add --no-cache git
+RUN git submodule update --init --recursive
+RUN mv -n /alvaldi-docs/nt-docs/* /alvaldi-docs/
+
+RUN npm ci
+RUN npm run build:all
 RUN find public -type f -regex '^.*\.\(svg\|css\|html\|xml\|gif\)$' -size +1k -exec gzip -k '{}' \;
 
 FROM nginx:stable-alpine
