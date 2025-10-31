@@ -35,6 +35,7 @@ jobs:
           title: Upgraded Hugo version to ${{ steps.fetch_hugo_version.outputs.version }}
           body: |
             This PR updates the version of Hugo used in the Containerfile to ${{ steps.fetch_hugo_version.outputs.version }}.
+          draft: always-true
           reviewers: |
             olehermanse
             nickanderson
