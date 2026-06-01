@@ -29,3 +29,9 @@ primary = "#0A3522" # home page h1
 secondary = "#14A452"
 link = "#0F8843"
 footer = "#0A3522"
+
+
+# Hugo 0.162+ blocks text/html content files by default
+# so explicitly allow the content media types we use
+[security]
+allowContent = ['^text/(html|markdown|org)$']
