@@ -9,6 +9,9 @@ jobs:
   update_hugo_version:
     if: github.repository_owner == 'cfengine' || github.repository_owner == 'mendersoftware' || github.repository_owner == 'NorthernTechHQ'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
       - name: Fetch latest Hugo release info
@@ -32,6 +35,7 @@ jobs:
           title: Upgraded Hugo version to ${{ steps.fetch_hugo_version.outputs.version }}
           body: |
             This PR updates the version of Hugo used in the Containerfile to ${{ steps.fetch_hugo_version.outputs.version }}.
+          draft: always-true
           reviewers: |
             olehermanse
             nickanderson
@@ -39,3 +43,4 @@ jobs:
             craigcomstock
           
           branch: hugo-version-update-${{ steps.fetch_hugo_version.outputs.version }}
+          sign-commits: true

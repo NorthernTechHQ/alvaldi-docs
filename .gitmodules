@@ -1,0 +1,3 @@
+[submodule "nt-docs"]
+	path = nt-docs
+	url = https://github.com/NorthernTechHQ/nt-docs.git
