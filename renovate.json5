@@ -1,0 +1,37 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  "extends": [
+    "config:recommended",
+    ":gitSignOff"
+  ],
+
+  "semanticCommits": "enabled",
+  "semanticCommitType": "chore",
+  "semanticCommitScope": "deps",
+
+  "rebaseWhen": "conflicted",
+
+  "prHourlyLimit": 2,
+  "prConcurrentLimit": 5,
+
+  "baseBranchPatterns": ["main"],
+
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "schedule": ["at any time"],
+    "labels": ["security"]
+  },
+
+  "packageRules": [
+    {
+      "matchManagers": ["gitlabci", "gitlabci-include"],
+      "semanticCommitType": "ci",
+      "semanticCommitScope": ""
+    },
+    {
+      "matchManagers": ["git-submodules"],
+      "enabled": true
+    }
+  ]
+}
