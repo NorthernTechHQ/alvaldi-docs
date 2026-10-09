@@ -3,6 +3,7 @@ variables:
   DOCKERFILE: Containerfile
   MULTIPLATFORM_BUILD: "true"
   MULTIPLATFORM_PLATFORMS: "linux/amd64,linux/arm64"
+  EXTRA_DOCKER_ARGS: "--build-arg SEARCH_ENGINES_DISABLED=false" # do not disable search engines by default
   GITHUB_STATUS_API_URL: "https://api.github.com/repos/NorthernTechHQ/$CI_PROJECT_NAME/statuses/$CI_COMMIT_SHA"
   DOCKER_HOST:
     value: 'tcp://docker:2376'
@@ -36,6 +37,13 @@ stages:
 build:docker:
   rules:
     - when: never
+
+build:docker-multiplatform:
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      variables:
+        EXTRA_DOCKER_ARGS: "--build-arg SEARCH_ENGINES_DISABLED=true" # disable if the branch is main (staging)
+    - if: '$CI_COMMIT_BRANCH =~ /^(main|production)$/'
 
 # excludes non multiplatform build job
 publish:image:
