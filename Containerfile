@@ -1,5 +1,9 @@
 FROM --platform=$BUILDPLATFORM node:alpine AS build
 ARG TARGETPLATFORM
+
+ARG SEARCH_ENGINES_DISABLED
+ENV HUGO_PARAMS_SEARCHENGINES_DISABLED=$SEARCH_ENGINES_DISABLED
+
 WORKDIR /alvaldi-docs
 ADD https://github.com/gohugoio/hugo/releases/download/v0.164.0/hugo_0.164.0_Linux-64bit.tar.gz hugo.tar.gz
 RUN echo "d9c8b17285ea4ec004d9f814273ea910f2051ce02c284993fd1f91ba455ae50d  hugo.tar.gz" | sha256sum -c
