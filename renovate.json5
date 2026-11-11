@@ -32,6 +32,10 @@
     {
       "matchManagers": ["git-submodules"],
       "enabled": true
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "enabled": true
     }
   ]
 }
